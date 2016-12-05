@@ -13,3 +13,5 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
+web/assets/css/*.map
+.sass-cache/
