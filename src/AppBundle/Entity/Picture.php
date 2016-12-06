@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="picture")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PictureRepository")
  */
-class Pictures
+class Picture
 {
     /**
      * @var int
@@ -58,7 +58,7 @@ class Pictures
      *
      * @param string $facebookId
      *
-     * @return Pictures
+     * @return Picture
      */
     public function setFacebookId($facebookId)
     {
@@ -82,7 +82,7 @@ class Pictures
      *
      * @param boolean $deleted
      *
-     * @return Pictures
+     * @return Picture
      */
     public function setDeleted($deleted = true)
     {
@@ -106,7 +106,7 @@ class Pictures
      *
      * @param integer $likes
      *
-     * @return Pictures
+     * @return Picture
      */
     public function setLikes($likes)
     {
