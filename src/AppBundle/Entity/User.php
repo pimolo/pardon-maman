@@ -24,9 +24,9 @@ class User
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=255)
+     * @ORM\Column(name="firstname", type="string", length=255)
      */
-    private $name;
+    private $firstname;
 
     /**
      * @var string
@@ -68,27 +68,27 @@ class User
     }
 
     /**
-     * Set name
+     * Set firstname
      *
-     * @param string $name
+     * @param string $firstname
      *
      * @return User
      */
-    public function setName($name)
+    public function setFirstname($firstname)
     {
-        $this->name = $name;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get firstname
      *
      * @return string
      */
-    public function getName()
+    public function getFirstname()
     {
-        return $this->name;
+        return $this->firstname;
     }
 
     /**

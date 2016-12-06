@@ -5,10 +5,10 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Pictures
+ * Picture
  *
- * @ORM\Table(name="pictures")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\PicturesRepository")
+ * @ORM\Table(name="picture")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PictureRepository")
  */
 class Pictures
 {
@@ -31,9 +31,9 @@ class Pictures
     /**
      * @var bool
      *
-     * @ORM\Column(name="is_deleted", type="boolean")
+     * @ORM\Column(name="deleted", type="boolean")
      */
-    private $isDeleted;
+    private $deleted;
 
     /**
      * @var int
@@ -78,15 +78,15 @@ class Pictures
     }
 
     /**
-     * Set isDeleted
+     * Set deleted
      *
-     * @param boolean $isDeleted
+     * @param boolean $deleted
      *
      * @return Pictures
      */
-    public function setIsDeleted($isDeleted)
+    public function setDeleted($deleted = true)
     {
-        $this->isDeleted = $isDeleted;
+        $this->deleted = $deleted;
 
         return $this;
     }
@@ -96,9 +96,9 @@ class Pictures
      *
      * @return bool
      */
-    public function getIsDeleted()
+    public function isDeleted()
     {
-        return $this->isDeleted;
+        return $this->deleted;
     }
 
     /**

@@ -5,12 +5,12 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Concours
+ * Contest
  *
- * @ORM\Table(name="concours")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ConcoursRepository")
+ * @ORM\Table(name="contest")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ContestRepository")
  */
-class Concours
+class Contest
 {
     /**
      * @var int
@@ -77,6 +77,13 @@ class Concours
      */
     private $dateCreated;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="deleted", type="boolean")
+     */
+    private $deleted;
+
 
     /**
      * Get id
@@ -93,7 +100,7 @@ class Concours
      *
      * @param string $title
      *
-     * @return Concours
+     * @return Contest
      */
     public function setTitle($title)
     {
@@ -117,7 +124,7 @@ class Concours
      *
      * @param string $content
      *
-     * @return Concours
+     * @return Contest
      */
     public function setContent($content)
     {
@@ -141,7 +148,7 @@ class Concours
      *
      * @param \DateTime $dateStart
      *
-     * @return Concours
+     * @return Contest
      */
     public function setDateStart($dateStart)
     {
@@ -165,7 +172,7 @@ class Concours
      *
      * @param \DateTime $dateEnd
      *
-     * @return Concours
+     * @return Contest
      */
     public function setDateEnd($dateEnd)
     {
@@ -189,7 +196,7 @@ class Concours
      *
      * @param boolean $disabled
      *
-     * @return Concours
+     * @return Contest
      */
     public function setDisabled($disabled)
     {
@@ -213,7 +220,7 @@ class Concours
      *
      * @param string $prize
      *
-     * @return Concours
+     * @return Contest
      */
     public function setPrize($prize)
     {
@@ -237,7 +244,7 @@ class Concours
      *
      * @param \DateTime $dateUpdate
      *
-     * @return Concours
+     * @return Contest
      */
     public function setDateUpdate($dateUpdate)
     {
@@ -261,7 +268,7 @@ class Concours
      *
      * @param \DateTime $dateCreated
      *
-     * @return Concours
+     * @return Contest
      */
     public function setDateCreated($dateCreated)
     {
@@ -278,6 +285,25 @@ class Concours
     public function getDateCreated()
     {
         return $this->dateCreated;
+    }
+
+    /**
+     * @param bool $deleted
+     * @return Contest
+     */
+    public function setDeleted($deleted = true)
+    {
+        $this->deleted = $deleted;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function getDeleted()
+    {
+        return $this->deleted;
     }
 }
 
