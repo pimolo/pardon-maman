@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +43,12 @@ class Picture
      */
     private $likes;
 
+    /**
+     * @var Picture[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Contest", inversedBy="pictures")
+     */
+    private $contests;
 
     /**
      * Get id
@@ -123,6 +130,46 @@ class Picture
     public function getLikes()
     {
         return $this->likes;
+    }
+
+    /**
+     * @param Picture[]|ArrayCollection $contests
+     * @return Picture
+     */
+    public function setContests($contests)
+    {
+        $this->contests = $contests;
+
+        return $this;
+    }
+    /**
+     * @param Contest $contest
+     * @return Picture
+     */
+    public function addContest(Contest $contest)
+    {
+        $this->contests->add($contest);
+
+        return $this;
+    }
+
+    /**
+     * @param Contest $contest
+     * @return Picture
+     */
+    public function removeContest(Contest $contest)
+    {
+        $this->contests->removeElement($contest);
+
+        return $this;
+    }
+
+    /**
+     * @return Picture[]|ArrayCollection
+     */
+    public function getContests()
+    {
+        return $this->contests;
     }
 }
 

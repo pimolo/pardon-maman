@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -84,6 +85,12 @@ class Contest
      */
     private $deleted;
 
+    /**
+     * @var Picture[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Picture", mappedBy="contests")
+     */
+    private $pictures;
 
     /**
      * Get id
@@ -305,5 +312,45 @@ class Contest
     {
         return $this->deleted;
     }
-}
 
+    /**
+     * @param Picture[]|ArrayCollection $pictures
+     * @return Contest
+     */
+    public function setPictures($pictures)
+    {
+        $this->pictures = $pictures;
+
+        return $this;
+    }
+
+    /**
+     * @param Picture $picture
+     * @return Contest
+     */
+    public function addPicture(Picture $picture)
+    {
+        $this->pictures->add($picture);
+
+        return $this;
+    }
+
+    /**
+     * @param Picture $picture
+     * @return Contest
+     */
+    public function removePicture(Picture $picture)
+    {
+        $this->pictures->removeElement($picture);
+
+        return $this;
+    }
+
+    /**
+     * @return Picture[]|ArrayCollection
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+}
