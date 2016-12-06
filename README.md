@@ -7,4 +7,4 @@ Wait for it...
 ```composer install```
 
 Sass watch
-```sass --watch preprocess:web/assets/css```
+```sass --watch app/sass:web/assets/css```
