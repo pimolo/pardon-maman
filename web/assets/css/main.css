@@ -6,13 +6,13 @@
   margin: 0;
   padding: 0; }
 
-header h1, header h2 {
-  margin: 0; }
 header h1 {
   font-family: 'Oswald', sans-serif;
   font-size: 6em;
   line-height: 0.95em;
   text-transform: uppercase; }
+  header h1 span {
+    letter-spacing: 0.05em; }
 header h1, header > div {
   float: left;
   width: 50%; }
@@ -43,26 +43,45 @@ header p {
 
 nav {
   clear: both;
-  width: 100%; }
-  nav ul {
-    margin: 2em 0;
-    display: block;
-    padding: 0;
-    float: right; }
+  width: 100%;
+  margin: 70px 0;
+  text-align: right; }
   nav ul li {
     font-family: 'Oswald', sans-serif;
     font-size: 2em;
     display: inline-block;
     text-decoration: none;
     list-style: none;
-    margin: 0 20px; }
+    margin-left: 20px; }
 
 body {
   background: #fff;
   font: 400 1em/1.4 'Roboto', Arial; }
 
+.home .dividTitle {
+  font: 1.5em/1 'Oswald', sans-serif;
+  text-transform: uppercase;
+  margin: 20px 0;
+  position: relative; }
+  .home .dividTitle span {
+    background-color: #fff;
+    padding-right: 5px; }
+  .home .dividTitle:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    top: 13px;
+    left: 0px;
+    z-index: -1; }
 .home #bestRatedCarousel .owl-item {
   position: relative; }
+  .home #bestRatedCarousel .owl-item img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    display: block; }
   .home #bestRatedCarousel .owl-item .info {
     position: absolute;
     height: 100%;
@@ -106,10 +125,5 @@ body {
           margin-right: 20px; }
         .home #bestRatedCarousel .owl-item .info .container button:hover {
           cursor: pointer; }
-  .home #bestRatedCarousel .owl-item img {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    display: block; }
 
 /*# sourceMappingURL=main.css.map */
