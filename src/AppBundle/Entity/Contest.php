@@ -5,6 +5,8 @@ namespace AppBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Context\ExecutionContextInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Contest
@@ -42,6 +44,7 @@ class Contest
      * @var \DateTimeInterface
      *
      * @ORM\Column(name="date_start", type="datetime")
+     * @Assert\GreaterThan("now")
      */
     private $dateStart;
 
@@ -49,6 +52,7 @@ class Contest
      * @var \DateTimeInterface
      *
      * @ORM\Column(name="date_end", type="datetime")
+     * @Assert\GreaterThan("now")
      */
     private $dateEnd;
 
@@ -99,6 +103,22 @@ class Contest
     {
         $this->dateUpdate = $this->dateCreated = new \DateTime();
         $this->deletedAt = null;
+    }
+
+    /**
+     * @param ExecutionContextInterface $context
+     * @param $payload
+     * @Assert\Callback
+     */
+    public function validate(ExecutionContextInterface $context, $payload)
+    {
+        if ($this->getDateStart() > $this->getDateEnd()) {
+            $context
+                ->buildViolation('La date de fin doît être supérieure à la date de début.')
+                ->atPath('dateEnd')
+                ->addViolation()
+            ;
+        }
     }
 
     /**
