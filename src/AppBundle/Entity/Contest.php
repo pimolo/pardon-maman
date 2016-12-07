@@ -4,12 +4,14 @@ namespace AppBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Contest
  *
  * @ORM\Table(name="contest")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ContestRepository")
+ * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  */
 class Contest
 {
@@ -37,14 +39,14 @@ class Contest
     private $content;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface
      *
      * @ORM\Column(name="date_start", type="datetime")
      */
     private $dateStart;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface
      *
      * @ORM\Column(name="date_end", type="datetime")
      */
@@ -65,25 +67,26 @@ class Contest
     private $prize;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface
      *
      * @ORM\Column(name="date_update", type="datetime")
+     * @Gedmo\Timestampable(on="update")
      */
     private $dateUpdate;
 
     /**
-     * @var \DateTime
+     * @var \DateTimeInterface
      *
      * @ORM\Column(name="date_created", type="datetime")
      */
     private $dateCreated;
 
     /**
-     * @var bool
+     * @var \DateTime
      *
-     * @ORM\Column(name="deleted", type="boolean")
+     * @ORM\Column(name="deleted_at", type="datetime", nullable=true)
      */
-    private $deleted;
+    private $deletedAt;
 
     /**
      * @var Picture[]|ArrayCollection
@@ -91,6 +94,12 @@ class Contest
      * @ORM\ManyToMany(targetEntity="Picture", mappedBy="contests")
      */
     private $pictures;
+
+    public function __construct()
+    {
+        $this->dateUpdate = $this->dateCreated = new \DateTime();
+        $this->deletedAt = null;
+    }
 
     /**
      * Get id
@@ -153,7 +162,7 @@ class Contest
     /**
      * Set dateStart
      *
-     * @param \DateTime $dateStart
+     * @param \DateTimeInterface $dateStart
      *
      * @return Contest
      */
@@ -167,7 +176,7 @@ class Contest
     /**
      * Get dateStart
      *
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDateStart()
     {
@@ -177,7 +186,7 @@ class Contest
     /**
      * Set dateEnd
      *
-     * @param \DateTime $dateEnd
+     * @param \DateTimeInterface $dateEnd
      *
      * @return Contest
      */
@@ -191,7 +200,7 @@ class Contest
     /**
      * Get dateEnd
      *
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDateEnd()
     {
@@ -249,7 +258,7 @@ class Contest
     /**
      * Set dateUpdate
      *
-     * @param \DateTime $dateUpdate
+     * @param \DateTimeInterface $dateUpdate
      *
      * @return Contest
      */
@@ -263,7 +272,7 @@ class Contest
     /**
      * Get dateUpdate
      *
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDateUpdate()
     {
@@ -273,7 +282,7 @@ class Contest
     /**
      * Set dateCreated
      *
-     * @param \DateTime $dateCreated
+     * @param \DateTimeInterface $dateCreated
      *
      * @return Contest
      */
@@ -287,7 +296,7 @@ class Contest
     /**
      * Get dateCreated
      *
-     * @return \DateTime
+     * @return \DateTimeInterface
      */
     public function getDateCreated()
     {
@@ -295,22 +304,22 @@ class Contest
     }
 
     /**
-     * @param bool $deleted
+     * @param \DateTime $deletedAt
      * @return Contest
      */
-    public function setDeleted($deleted = true)
+    public function setDeletedAt($deletedAt)
     {
-        $this->deleted = $deleted;
+        $this->deletedAt = $deletedAt;
 
         return $this;
     }
 
     /**
-     * @return bool
+     * @return \DateTime
      */
-    public function getDeleted()
+    public function getDeletedAt()
     {
-        return $this->deleted;
+        return $this->deletedAt;
     }
 
     /**
