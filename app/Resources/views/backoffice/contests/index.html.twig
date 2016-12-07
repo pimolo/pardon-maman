@@ -1,3 +1,6 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
 <a href="{{ url('app_backoffice_contest_new') }}">Nouveau concours</a>
 <table>
     <thead>
@@ -27,3 +30,4 @@
     {% endfor %}
     </tbody>
 </table>
+{% endblock %}
