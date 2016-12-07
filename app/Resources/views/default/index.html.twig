@@ -5,8 +5,8 @@
 {% block pageID %}home{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 {% endblock %}
 
 {% block fonts %}
@@ -37,15 +37,43 @@
     <main>
         <section id="gallery">
             <div id="bestRatedCarousel" class="owl-carousel">
+              <!-- most popular -->
               <div> 
-                <img src="http://placehold.it/365x72" alt="#">
+                <div class="info">
+                  <div class="container">
+                    <h3>Phyllis Brown</h3>
+                    <p>Proin wisi libero, vestibulum eget, pulvinar...</p>
+                    <button>J’aime</button>
+                    <button>Partager</button>
+                  </div>
+                </div>
+                <img src="http://placehold.it/365x172" alt="#">
               </div>
+              <!-- #2 popular -->
               <div> 
-                <img src="http://placehold.it/365x72" alt="#">
+                <div class="info">
+                  <div class="container">
+                    <h3>Phyllis Brown</h3>
+                    <p>Proin wisi libero, vestibulum eget, pulvinar...</p>
+                    <button>J’aime</button>
+                    <button>Partager</button>
+                  </div>
+                </div>
+                <img src="http://placehold.it/365x172" alt="#">
               </div>
+              <!-- #3 popular -->
               <div> 
-                <img src="http://placehold.it/365x72" alt="#">
+                <div class="info">
+                  <div class="container">
+                    <h3>Phyllis Brown</h3>
+                    <p>Proin wisi libero, vestibulum eget, pulvinar...</p>
+                    <button>J’aime</button>
+                    <button>Partager</button>
+                  </div>
+                </div>
+                <img src="http://placehold.it/365x172" alt="#">
               </div>
+
             </div>
         </section>
     </main>
