@@ -1,3 +1,4 @@
-app:
-    resource: "@AppBundle/Controller/"
+app_backoffice:
+    resource: "@AppBundle/Controller/BackOffice/"
     type:     annotation
+    prefix: "/admin"
