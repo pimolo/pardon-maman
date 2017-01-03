@@ -1,10 +1,9 @@
-.globalWrapper {
-  padding: 50px;
-  overflow-x: hidden; }
+body {
+  background: #fff;
+  font: 400 1em/1.4 'Roboto', Arial; }
 
-* {
-  margin: 0;
-  padding: 0; }
+.globalWrapper {
+  margin: 0 5%; }
 
 .loginPopup {
   position: fixed;
@@ -124,8 +123,8 @@ header p {
 
 nav {
   clear: both;
-  width: 100%;
-  margin: 70px 0;
+  width: 90%;
+  margin: 70px 5%;
   text-align: right; }
   nav ul li {
     font-family: 'Oswald', sans-serif;
@@ -134,10 +133,6 @@ nav {
     text-decoration: none;
     list-style: none;
     margin-left: 20px; }
-
-body {
-  background: #fff;
-  font: 400 1em/1.4 'Roboto', Arial; }
 
 .home .dividTitle {
   font: 1.5em/1 'Oswald', sans-serif;
@@ -156,38 +151,43 @@ body {
     top: 13px;
     left: 0px;
     z-index: -1; }
-.home #bestRatedCarousel .owl-item {
-  position: relative; }
-  .home #bestRatedCarousel .owl-item img {
+.home #gallery #bestRatedCarousel .owl-item {
+  position: relative;
+  background-color: #000; }
+  .home #gallery #bestRatedCarousel .owl-item img {
     height: 100%;
     width: 100%;
     object-fit: cover;
-    display: block; }
-  .home #bestRatedCarousel .owl-item .info {
+    display: block;
+    opacity: 0.3; }
+  .home #gallery #bestRatedCarousel .owl-item .info {
     position: absolute;
     height: 100%;
-    width: 100%;
+    width: 50%;
     top: 0px;
     left: 0px;
     box-sizing: border-box;
     color: #fff;
-    background-color: rgba(0, 0, 0, 0.8); }
-    .home #bestRatedCarousel .owl-item .info .container {
+    z-index: 1;
+    background: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5) 80%, transparent 98%);
+    background: -webkit-linear-gradient(left, rgba(0, 0, 0, 0.5) 80%, transparent 98%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 80%, transparent 98%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80000000', endColorstr='#00000000',GradientType=1 ); }
+    .home #gallery #bestRatedCarousel .owl-item .info .container {
       position: relative;
-      max-width: 500px;
       padding: 10%;
       top: 50%;
       transform: translateY(-50%);
       box-sizing: border-box; }
-      .home #bestRatedCarousel .owl-item .info .container h3 {
+      .home #gallery #bestRatedCarousel .owl-item .info .container h3 {
         font: 2em/1 'Oswald', sans-serif;
         text-transform: uppercase; }
-      .home #bestRatedCarousel .owl-item .info .container p {
+      .home #gallery #bestRatedCarousel .owl-item .info .container p {
         margin-top: 10px;
         margin-bottom: 40px;
         text-indent: 50px;
         position: relative; }
-        .home #bestRatedCarousel .owl-item .info .container p:before {
+        .home #gallery #bestRatedCarousel .owl-item .info .container p:before {
           content: "";
           width: 40px;
           height: 2px;
@@ -195,16 +195,16 @@ body {
           left: 0px;
           background-color: #fff;
           position: absolute; }
-      .home #bestRatedCarousel .owl-item .info .container button {
+      .home #gallery #bestRatedCarousel .owl-item .info .container button {
         border: 1px solid #fff;
         background-color: #000;
         color: #fff;
         padding: 10px 40px;
         text-transform: uppercase;
         font: 1em/1 'Oswald', sans-serif; }
-        .home #bestRatedCarousel .owl-item .info .container button:first-of-type {
+        .home #gallery #bestRatedCarousel .owl-item .info .container button:first-of-type {
           margin-right: 20px; }
-        .home #bestRatedCarousel .owl-item .info .container button:hover {
+        .home #gallery #bestRatedCarousel .owl-item .info .container button:hover {
           cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */
