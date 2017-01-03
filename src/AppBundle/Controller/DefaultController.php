@@ -31,4 +31,14 @@ class DefaultController extends Controller
 
         return $this->redirect($this->get('facebook.helper')->loginPage($redirect));
     }
+
+    /**
+     * @Route("/upload", name="upload")
+     */
+    public function uploadAction(Request $request)
+    {
+        return $this->render('upload/index.html.twig', [
+            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
+        ]);
+    }
 }
