@@ -1,0 +1,116 @@
+.globalWrapper{
+	padding:50px;
+	overflow-x:hidden;
+}
+*{
+	margin:0;
+	padding:0;
+}
+.loginPopup{
+	position:fixed;
+	height:100%;
+	width:100%;
+	top:0px;
+	left:0px;
+	background-color:#fff;
+	z-index:1;
+	.center{
+		position:absolute;
+		top:50%;
+		transform:translateY(-50%);
+		margin:0 50px;
+		//width:calc(100% - 100px);
+		.top, .bottom{
+			display: table;
+			table-layout: fixed;
+			width:100%;
+		}
+		.left, .right{
+			display: table-cell;
+		}
+		.top{
+			.left, .right{
+				vertical-align:top;
+			}
+			.left{
+		    h1 {
+					background-color:#000;
+					display:table;
+	        font-family: 'Oswald', sans-serif;
+	        font-size: 6.7em;
+	        line-height: 0.95em;
+	        text-transform: uppercase;
+	        color:#fff;
+	        width:calc(100% - 35px);
+	        padding:10px;
+	        position:relative;
+	        letter-spacing:0.02em;
+	        &:before{
+	        	content:"";
+	        	position:absolute;
+	        	width:100%;
+	        	height:100%;
+	        	background:#000;
+	        	left:0px;
+	        	top:-100%;
+	        }
+	        span{
+	          letter-spacing:0.07em;
+	        }
+		    }
+			}
+			.right{
+		    h2 {
+	        font:3em/1 'Oswald', sans-serif;
+	        text-transform: uppercase;
+	        position:relative;
+	        display:table;
+	        background-color:#fff;
+		    }
+
+		    h2:after {
+	        content:'';
+	        display:block;
+	        width:100%;
+	        height:10px;
+	        z-index:-1;
+	        position:absolute;
+	        right:-100%;
+	        top:calc(50% - 5px);
+	        background-color:#000;
+		    }
+			}
+		}
+		.bottom{
+			margin-top:10px;
+			.left, .right{
+				vertical-align:middle;
+			}
+			.left{
+				button{
+					background-color:#000;
+					color:#fff;
+					border:none;
+					display:block;
+					padding:0 30px;
+					box-sizing:border-box;
+					width:calc(100% - 15px);
+	        font:2em/2.5 'Oswald', sans-serif;
+	        text-transform:uppercase;
+				}
+			}
+			.right{
+				h3{
+	        font:3.4em/1 'Oswald', sans-serif;
+	        text-transform:uppercase;
+	        span{
+	        	display:block;
+	        	font-size:0.5em;
+	        	letter-spacing:0.05em;
+	        }
+				}
+			}
+		}
+
+	}
+}
