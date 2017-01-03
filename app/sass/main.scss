@@ -1,11 +1,4 @@
-.globalWrapper{
-	padding:50px;
-	overflow-x:hidden;
-}
-*{
-	margin:0;
-	padding:0;
-}
+@import 'common';
 @import 'header';
 @import 'nav';
 
