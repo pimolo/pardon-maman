@@ -1,47 +1,47 @@
 header{
-    h1 {
-        font-family: 'Oswald', sans-serif;
-        font-size: 6em;
-        line-height: 0.95em;
-        text-transform: uppercase;
-        span{
-          letter-spacing:0.05em;
-        }
+  h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 6em;
+    line-height: 0.95em;
+    text-transform: uppercase;
+    span{
+      letter-spacing:0.05em;
     }
-    h1, & > div{
-      float: left;
-      width:50%;
-    }
-    
-    &:after{
-        content:"";
-        display:block;
-        clear:both;
-    }
+  }
+  h1, & > div{
+    float: left;
+    width:50%;
+  }
+  
+  &:after{
+    content:"";
+    display:block;
+    clear:both;
+  }
 
-    h2 {
-        font:3em/1 'Oswald', sans-serif;
-        text-transform: uppercase;
-        position:relative;
-        display:table;
-        background-color:#fff;
-    }
+  h2 {
+    font:3em/1 'Oswald', sans-serif;
+    text-transform: uppercase;
+    position:relative;
+    display:table;
+    background-color:#fff;
+  }
 
-    h2:after {
-        content:'';
-        display:block;
-        width:100%;
-        height:10px;
-        z-index:-1;
-        position:absolute;
-        right:-100%;
-        top:calc(50% - 5px);
-        background-color:#000;
-    }
+  h2:after {
+    content:'';
+    display:block;
+    width:100%;
+    height:10px;
+    z-index:-1;
+    position:absolute;
+    right:-100%;
+    top:calc(50% - 5px);
+    background-color:#000;
+  }
 
-    p {
-        margin-top:25px;
-        font-size: 1.2em;
-        text-align: justify;
-    }
+  p {
+    margin-top:25px;
+    font-size: 1.2em;
+    text-align: justify;
+  }
 }
