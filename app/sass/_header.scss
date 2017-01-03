@@ -1,4 +1,9 @@
 header{
+  &:after{
+    content:"";
+    display:block;
+    clear:both;
+  }
   h1 {
     font-family: 'Oswald', sans-serif;
     font-size: 6em;
@@ -11,12 +16,6 @@ header{
   h1, & > div{
     float: left;
     width:50%;
-  }
-  
-  &:after{
-    content:"";
-    display:block;
-    clear:both;
   }
 
   h2 {

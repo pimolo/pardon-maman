@@ -3,7 +3,11 @@ body {
   font: 400 1em/1.4 'Roboto', Arial; }
 
 .globalWrapper {
-  margin: 0 5%; }
+  margin: 5%; }
+
+* {
+  margin: 0;
+  padding: 0; }
 
 .loginPopup {
   position: fixed;
@@ -86,6 +90,10 @@ body {
           font-size: 0.5em;
           letter-spacing: 0.05em; }
 
+header:after {
+  content: "";
+  display: block;
+  clear: both; }
 header h1 {
   font-family: 'Oswald', sans-serif;
   font-size: 6em;
@@ -96,10 +104,6 @@ header h1 {
 header h1, header > div {
   float: left;
   width: 50%; }
-header:after {
-  content: "";
-  display: block;
-  clear: both; }
 header h2 {
   font: 3em/1 'Oswald', sans-serif;
   text-transform: uppercase;
