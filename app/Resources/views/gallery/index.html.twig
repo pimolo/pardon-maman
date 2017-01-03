@@ -2,22 +2,73 @@
 
 {% block title %}Concours Photos{% endblock %}
 
+{% block pageID %}home{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.css') }}">
+{% endblock %}
+
+{% block fonts %}
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/owl.carousel.js') }}"></script>
+    <script src="{{ asset('assets/js/home.js') }}"></script>
+{% endblock %}
+
 {% block body %}
     <header>
         <h1>Pardon Maman</h1>
-        <h2>Concours photo</h2>
-        <p>Partagez une photo de votre choix jusqu'au 19/11/2016.</p>
-        <nav>
-            <ul>
-                <li>Gallerie</li>
-                <li>Participer</li>
-                <li>Icon 1</li>
-                <li>Icon 2</li>
-            </ul>
-        </nav>
+        <div>
+            <h2>Concours photo</h2>
+            <p>Partagez une photo de votre tatouage jusqu'au 19/11/2016 et votez pour vos contestants préférés pour gagner <i>cras gravida, diam sit amet rhoncus</i></p>
+        </div>
     </header>
-    <div id="gallery">
-
-    </div>
+    <nav>
+        <ul>
+            <li>Gallerie</li>
+            <li>Participer</li>
+            <li>Icon 1</li>
+            <li>Icon 2</li>
+        </ul>
+    </nav>
+    <main>
+        <section id="gallery">
+            <article>
+                <div>
+                    <h2>Morgan Leroux</h2>
+                    <button>J'aime</button>
+                    <button>Partager</button>
+                </div>
+                <img src="{{ asset('assets/img/morgan.jpg') }}" alt="pas moi">
+            </article>
+            <article>
+                <div>
+                    <h2>Morgan Leroux</h2>
+                    <button>J'aime</button>
+                    <button>Partager</button>
+                </div>
+                <img src="{{ asset('assets/img/morgan.jpg') }}" alt="pas moi">
+            </article>
+            <article>
+                <div>
+                    <h2>Morgan Leroux</h2>
+                    <button>J'aime</button>
+                    <button>Partager</button>
+                </div>
+                <img src="{{ asset('assets/img/morgan.jpg') }}" alt="pas moi">
+            </article>
+            <article>
+                <div>
+                    <h2>Morgan Leroux</h2>
+                    <button>J'aime</button>
+                    <button>Partager</button>
+                </div>
+                <img src="{{ asset('assets/img/morgan.jpg') }}" alt="pas moi">
+            </article>
+        </section>
+    </main>
 {% endblock %}
 

@@ -2,7 +2,11 @@
 	padding:50px;
 	overflow-x:hidden;
 }
+
+@import 'vars';
+
 @import 'header';
 @import 'nav';
 
 @import 'home';
+@import 'gallery';
