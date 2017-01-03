@@ -1,20 +1,18 @@
 header{
-    h1, h2{
-        margin:0;
-    }
     h1 {
         font-family: 'Oswald', sans-serif;
         font-size: 6em;
         line-height: 0.95em;
         text-transform: uppercase;
+        span{
+          letter-spacing:0.05em;
+        }
     }
     h1, & > div{
-        float: left;
-        width:50%;
+      float: left;
+      width:50%;
     }
-    & > div{
-    }
-
+    
     &:after{
         content:"";
         display:block;
