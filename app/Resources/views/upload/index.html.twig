@@ -17,10 +17,30 @@
 {% endblock %}
 
 {% block body %}
-  <main>
-    <section>
-        LOLOLOLOL
+  <main> 
+    <section class="intro">
+      <p>Rappel cadeaux concours</p>
     </section>
+    <section>
+        <article>
+          <img src="{{ asset('assets/images/import-from-computer.png') }}" alt="Importer depuis ordinateur">
+          Importer l'image depuis votre ordinateur
+        </article>
+        <article>
+          <img src="{{ asset('assets/images/import-from-facebook.png') }}" alt="Importer depuis facebook">
+          Choisir l'image depuis votre compte
+        </article>
+    </section>
+    <footer>
+      <ul>
+        <li>
+          <a href="#" title="#">Réglement du concours</a>
+        </li>
+        <li>
+          <a href="#" title="#">Politique de confidentialité</a>
+        </li>
+      </ul>
+    </footer>
   </main>
 {% endblock %}
 
