@@ -20,6 +20,8 @@
   <main> 
     <!-- <h3 class="dividTitle"><span>Participer au concours</span></h3> -->
     <section class="methods">
+      <!-- upload form -->
+      <div>
         <article>
           <img src="{{ asset('assets/images/import-from-computer.png') }}" alt="Importer depuis ordinateur">
           <p>Importer l'image depuis votre ordinateur</p>
@@ -28,6 +30,15 @@
           <img src="{{ asset('assets/images/import-from-facebook.png') }}" alt="Importer depuis facebook">
           <p>Choisir l'image depuis votre compte</p>
         </article>
+      </div>
+
+      <p>
+        <label> <input type="checkbox">Je confirme que mon image est en règle avec </label><a href="#">les conditions de participations</a>
+      </p>
+      <button type="submit">
+        Envoyer
+      </button>
+
     </section>
 
     <h3 class="dividTitle"><span>Participation au concours</span></h3>
