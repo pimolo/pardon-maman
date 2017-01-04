@@ -1,6 +1,7 @@
 body {
   background: #fff;
-  font: 400 1em/1.4 'Roboto', Arial; }
+  font: 400 1em/1.4 'Roboto', Arial;
+  overflow-x: hidden; }
 
 .globalWrapper {
   margin: 5%; }
@@ -8,6 +9,24 @@ body {
 * {
   margin: 0;
   padding: 0; }
+
+.dividTitle {
+  font: 1.5em/1 'Oswald', sans-serif;
+  text-transform: uppercase;
+  margin: 20px 0;
+  position: relative; }
+  .dividTitle span {
+    background-color: #fff;
+    padding-right: 5px; }
+  .dividTitle:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    top: 13px;
+    left: 0px;
+    z-index: -1; }
 
 .loginPopup {
   position: fixed;
@@ -148,23 +167,6 @@ nav {
     list-style: none;
     margin-left: 20px; }
 
-.home .dividTitle {
-  font: 1.5em/1 'Oswald', sans-serif;
-  text-transform: uppercase;
-  margin: 20px 0;
-  position: relative; }
-  .home .dividTitle span {
-    background-color: #fff;
-    padding-right: 5px; }
-  .home .dividTitle:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: #000;
-    top: 13px;
-    left: 0px;
-    z-index: -1; }
 .home #gallery #bestRatedCarousel .owl-item {
   position: relative;
   background-color: #000; }
@@ -220,5 +222,42 @@ nav {
           margin-right: 20px; }
         .home #gallery #bestRatedCarousel .owl-item .info .container button:hover {
           cursor: pointer; }
+
+.upload .outro p {
+  margin-bottom: 10px; }
+.upload .methods {
+  display: table;
+  width: 100%;
+  margin-bottom: 60px; }
+  .upload .methods article {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    padding: 5%; }
+    .upload .methods article:hover {
+      background-color: #f2f2f2;
+      cursor: pointer; }
+    .upload .methods article img {
+      display: block;
+      width: 100px;
+      margin: 0 auto 30px; }
+    .upload .methods article p {
+      font-size: 0.8em;
+      font-style: italic;
+      color: #888; }
+.upload footer {
+  margin: 80px 0 40px;
+  font: 1em/1.2 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+  .upload footer ul {
+    list-style: none; }
+    .upload footer ul li {
+      display: inline-block;
+      margin-right: 15px; }
+      .upload footer ul li a {
+        text-decoration: none;
+        color: #000;
+        border-bottom: 1px solid #000; }
 
 /*# sourceMappingURL=main.css.map */
