@@ -10,6 +10,19 @@ body{
   margin:0;
   padding:0;
 }
+.call2acc{
+  display:table;
+  border:1px solid #000;
+  line-height:1;
+  padding:10px 30px;
+  font: 0.7em/1 'Oswald', sans-serif;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  &:hover{
+    background-color:#000;
+    color:#fff;
+  }
+}
 .dividTitle{
   font: 1.5em/1 'Oswald', sans-serif;
   text-transform:uppercase;
