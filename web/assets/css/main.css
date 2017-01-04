@@ -10,6 +10,18 @@ body {
   margin: 0;
   padding: 0; }
 
+.call2acc {
+  display: table;
+  border: 1px solid #000;
+  line-height: 1;
+  padding: 10px 30px;
+  font: 0.7em/1 'Oswald', sans-serif;
+  letter-spacing: 2px;
+  text-transform: uppercase; }
+  .call2acc:hover {
+    background-color: #000;
+    color: #fff; }
+
 .dividTitle {
   font: 1.5em/1 'Oswald', sans-serif;
   text-transform: uppercase;
@@ -167,6 +179,30 @@ nav {
     list-style: none;
     margin-left: 20px; }
 
+.home .call2acc {
+  margin-top: 30px; }
+.home section {
+  margin-bottom: 100px; }
+  .home section p {
+    margin-bottom: 10px; }
+.home #rules article {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  -webkit-column-gap: 50px;
+  -moz-column-gap: 50px;
+  column-gap: 50px; }
+.home #prizes {
+  overflow: hidden; }
+  .home #prizes article {
+    float: left;
+    width: 40%; }
+    .home #prizes article:first-of-type {
+      width: calc(60% - 30px);
+      margin-right: 30px; }
+    .home #prizes article img {
+      display: block;
+      width: 100%; }
 .home #gallery #bestRatedCarousel .owl-item {
   position: relative;
   background-color: #000; }
