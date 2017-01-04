@@ -17,3 +17,7 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    facebook.app_id: 220878195012333
+    facebook.app_secret: 5c33bda6b394b3fc424dc50b529f219e
+    facebook.default_graph_version: v2.2

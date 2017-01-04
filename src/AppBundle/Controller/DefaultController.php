@@ -18,4 +18,14 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/login", name="login")
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function loginAction(Request $request)
+    {
+        $request->getSession()->clear();
+        return $this->redirect($this->get('facebook.helper')->loginPage());
+    }
 }
