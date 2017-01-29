@@ -8,7 +8,7 @@ use Facebook\Facebook;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Security\Core\User\UserProviderInterface;
 
-class FacebookUserProvider implements UserProviderInterface
+class FacebookAdminProvider implements UserProviderInterface
 {
     private $facebookSdk;
 
@@ -20,7 +20,6 @@ class FacebookUserProvider implements UserProviderInterface
     public function loadUserByUsername($accessToken)
     {
         $response = $this->facebookSdk->get('/me?fields=id,name,email', $accessToken);
-
         $fbuser = $response->getGraphUser();
 
         /*
@@ -34,7 +33,7 @@ class FacebookUserProvider implements UserProviderInterface
             ->setUsername($fbuser->getEmail())
         ;
         */
-        return (new FacebookUser($fbuser));
+        return (new FacebookUser($fbuser))->addRole('ROLE_ADMIN');
     }
 
     public function refreshUser(UserInterface $user)

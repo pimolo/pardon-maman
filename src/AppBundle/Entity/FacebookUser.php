@@ -13,11 +13,17 @@ class FacebookUser implements UserInterface
     private $graphUser;
 
     /**
+     * @var array
+     */
+    private $roles;
+
+    /**
      * @param GraphUser $fbuser
      */
     public function __construct(GraphUser $fbuser)
     {
         $this->graphUser = $fbuser;
+        $this->roles = ['ROLE_USER'];
     }
 
     /**
@@ -36,14 +42,33 @@ class FacebookUser implements UserInterface
         $this->graphUser = $graphUser;
     }
 
+    /**
+     * @param $role
+     */
+    public function addRole($role)
+    {
+        $this->roles[] = $role;
+
+        return $this;
+    }
+
+    /**
+     * @param array $roles
+     * @return FacebookUser
+     */
+    public function setRoles(array $roles)
+    {
+        $this->roles = $roles;
+
+        return $this;
+    }
 
     /**
      * @inheritDoc
      */
     public function getRoles()
     {
-        return ['ROLE_USER'];
-        // TODO: Implement getRoles() method.
+        return $this->roles;
     }
 
     /**

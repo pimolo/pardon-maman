@@ -14,6 +14,9 @@ services:
     facebook.user_provider:
         class: AppBundle\Security\FacebookUserProvider
         arguments: ["@facebook_sdk"]
+    facebook.admin_provider:
+        class: AppBundle\Security\FacebookAdminProvider
+        arguments: ["@facebook_sdk"]
     facebook.helper:
         class: AppBundle\Controller\FacebookHelper
         arguments:
@@ -26,3 +29,4 @@ services:
         class: AppBundle\Security\TokenAuthenticator
         arguments:
             - "@facebook.login_helper"
+            - "@router"

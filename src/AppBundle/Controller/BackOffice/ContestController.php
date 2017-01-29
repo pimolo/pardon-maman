@@ -17,7 +17,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ContestController extends Controller
 {
     /**
-     * @Route("/", name="app_backoffice_contest_index")
+     * @Route("", name="app_backoffice_contest_index")
      * @return Response
      */
     public function indexContestAction()

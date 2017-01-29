@@ -3,8 +3,11 @@
 namespace AppBundle\Security;
 
 use Facebook\Helpers\FacebookRedirectLoginHelper;
+use Symfony\Bundle\FrameworkBundle\Routing\Router;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -13,11 +16,20 @@ use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 
 class TokenAuthenticator extends AbstractGuardAuthenticator
 {
+    /**
+     * @var FacebookRedirectLoginHelper
+     */
     private $loginHelper;
 
-    public function __construct(FacebookRedirectLoginHelper $loginHelper)
+    /**
+     * @var Router
+     */
+    private $router;
+
+    public function __construct(FacebookRedirectLoginHelper $loginHelper, Router $router)
     {
         $this->loginHelper = $loginHelper;
+        $this->router = $router;
     }
 
     /**
@@ -25,7 +37,10 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
      */
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        return new Response('auth required', Response::HTTP_UNAUTHORIZED);
+        $currentUrl = $this->router->generate($request->get('_route'), [], UrlGeneratorInterface::ABSOLUTE_URL);
+        $login = $this->router->generate('login', ['redirect' => $currentUrl], UrlGeneratorInterface::ABSOLUTE_URL);
+
+        return new RedirectResponse($login);
     }
 
     /**

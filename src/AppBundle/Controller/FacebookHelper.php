@@ -2,10 +2,11 @@
 
 namespace AppBundle\Controller;
 
-use Facebook\Facebook;
 use Facebook\Helpers\FacebookRedirectLoginHelper;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
+use Symfony\Component\Security\Core\Authorization\AccessDecisionManagerInterface;
 
 class FacebookHelper
 {
@@ -19,15 +20,17 @@ class FacebookHelper
      */
     private $router;
 
-    public function __construct(FacebookRedirectLoginHelper $loginHelper, Router $router)
-    {
+    public function __construct(
+        FacebookRedirectLoginHelper $loginHelper,
+        Router $router
+    ) {
         $this->loginHelper = $loginHelper;
         $this->router = $router;
     }
 
-    public function loginPage()
+    public function loginPage($redirectUrl)
     {
-        $redirectUrl = rtrim($this->router->generate('homepage', [], UrlGeneratorInterface::ABSOLUTE_URL), '/)');
+        $redirectUrl = rtrim($redirectUrl, '/)');
         $permissions = ['email'];
 
         return $this->loginHelper->getLoginUrl($redirectUrl, $permissions);
