@@ -5,9 +5,6 @@ security:
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         user:
-            id: facebook.user_provider
-
-        admin:
             id: facebook.admin_provider
 
     firewalls:
@@ -16,14 +13,6 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        admin:
-            pattern: ^/admin
-            provider: admin
-            anonymous: ~
-            logout: ~
-            guard:
-                authenticators:
-                    - token_auth
         main:
             pattern: ^/
             provider: user
