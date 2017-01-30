@@ -56,7 +56,6 @@ class User
      */
     private $location;
 
-
     /**
      * Get id
      *

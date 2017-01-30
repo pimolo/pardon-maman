@@ -4,6 +4,29 @@ parameters:
 #    parameter_name: value
 
 services:
-#    service_name:
-#        class: AppBundle\Directory\ClassName
-#        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
+    facebook.session_handler:
+        class: Facebook\PersistentData\FacebookSessionPersistentDataHandler
+        arguments: [false]
+    facebook_sdk:
+        class: Facebook\Facebook
+        arguments:
+            - {'app_id': "%facebook.app_id%", 'app_secret': "%facebook.app_secret%", 'default_graph_version': "%facebook.default_graph_version%", 'persistent_data_handler': "@facebook.session_handler"}
+    facebook.user_provider:
+        class: AppBundle\Security\FacebookUserProvider
+        arguments: ["@facebook_sdk"]
+    facebook.admin_provider:
+        class: AppBundle\Security\FacebookAdminProvider
+        arguments: ["@facebook_sdk"]
+    facebook.helper:
+        class: AppBundle\Controller\FacebookHelper
+        arguments:
+            - "@facebook.login_helper"
+            - "@router"
+    facebook.login_helper:
+        class: Facebook\Helpers\FacebookRedirectLoginHelper
+        factory: 'facebook_sdk:getRedirectLoginHelper'
+    token_auth:
+        class: AppBundle\Security\TokenAuthenticator
+        arguments:
+            - "@facebook.login_helper"
+            - "@router"
