@@ -52,7 +52,7 @@ class TokenAuthenticator extends AbstractGuardAuthenticator
             return null;
         }
 
-        return ['token' => $token->getValue()];
+        return ['token' => $token];
     }
 
     /**

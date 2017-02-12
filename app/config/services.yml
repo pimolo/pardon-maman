@@ -30,3 +30,7 @@ services:
         arguments:
             - "@facebook.login_helper"
             - "@router"
+    picture.repository:
+        class: AppBundle\Repository\Facebook\PictureRepository
+        arguments:
+            - "@facebook_sdk"

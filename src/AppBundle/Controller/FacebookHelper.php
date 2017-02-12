@@ -31,7 +31,7 @@ class FacebookHelper
     public function loginPage($redirectUrl)
     {
         $redirectUrl = rtrim($redirectUrl, '/)');
-        $permissions = ['email'];
+        $permissions = ['email', 'user_photos'];
 
         return $this->loginHelper->getLoginUrl($redirectUrl, $permissions);
     }

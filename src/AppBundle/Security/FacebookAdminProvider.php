@@ -33,7 +33,7 @@ class FacebookAdminProvider implements UserProviderInterface
             ->setUsername($fbuser->getEmail())
         ;
         */
-        return (new FacebookUser($fbuser))->addRole('ROLE_ADMIN');
+        return (new FacebookUser($fbuser))->addRole('ROLE_ADMIN')->setAccessToken($accessToken);
     }
 
     public function refreshUser(UserInterface $user)

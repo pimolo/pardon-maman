@@ -34,7 +34,7 @@ class FacebookUserProvider implements UserProviderInterface
             ->setUsername($fbuser->getEmail())
         ;
         */
-        return (new FacebookUser($fbuser));
+        return (new FacebookUser($fbuser))->setAccessToken($accessToken);
     }
 
     public function refreshUser(UserInterface $user)
