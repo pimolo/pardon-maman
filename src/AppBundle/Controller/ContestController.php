@@ -35,7 +35,7 @@ class ContestController extends Controller
     {
         /** @var FacebookUser $facebookUser */
         $facebookUser = $this->getUser();
-        $user = new User();
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->getByFacebookUser($facebookUser);
 
         $repository = $this->get('picture.repository');
 

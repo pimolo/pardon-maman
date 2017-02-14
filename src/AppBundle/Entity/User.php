@@ -60,13 +60,26 @@ class User
     /**
      * @var ArrayCollection|Picture[]
      *
-     * @ORM\OneToMany(targetEntity="User", mappedBy="user")
+     * @ORM\OneToMany(targetEntity="Picture", mappedBy="user")
      */
     private $photos;
 
     public function __construct()
     {
         $this->photos = new ArrayCollection();
+    }
+
+    public static function createFromFacebookObject(FacebookUser $user)
+    {
+        $graphUser = $user->getGraphUser();
+        $user = new self;
+        $user->setEmail($graphUser->getEmail());
+        $user->setFirstname('John');
+        $user->setLastname('Doe');
+        $user->setLocation('NYC');
+        $user->setAge(18);
+
+        return $user;
     }
 
     /**
