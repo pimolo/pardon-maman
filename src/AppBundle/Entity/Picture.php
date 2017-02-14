@@ -57,6 +57,13 @@ class Picture
      */
     private $representation;
 
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="photos")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->contests = new ArrayCollection();
@@ -205,6 +212,23 @@ class Picture
         return $this;
     }
 
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 
+    /**
+     * @param User $user
+     * @return Picture
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
 }
 

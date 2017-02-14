@@ -2,6 +2,7 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +56,18 @@ class User
      * @ORM\Column(name="location", type="string", length=255)
      */
     private $location;
+
+    /**
+     * @var ArrayCollection|Picture[]
+     *
+     * @ORM\OneToMany(targetEntity="User", mappedBy="user")
+     */
+    private $photos;
+
+    public function __construct()
+    {
+        $this->photos = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -184,6 +197,35 @@ class User
     public function getLocation()
     {
         return $this->location;
+    }
+
+    /**
+     * @return Picture[]|ArrayCollection
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+
+    /**
+     * @param Picture[]|ArrayCollection $photos
+     * @return User
+     */
+    public function setPhotos($photos)
+    {
+        $this->photos = $photos;
+        return $this;
+    }
+
+    /**
+     * @param Picture $photo
+     * @return User
+     */
+    public function addPhoto($photo)
+    {
+        $this->photos->add($photo);
+
+        return $this;
     }
 }
 
