@@ -57,4 +57,24 @@ class ContestController extends Controller
         $em->flush();
         return new Response('lel');
     }
+
+    /**
+     * @Route("/remove/{picture}", name="app_frontoffice_contest_remove")
+     *
+     * @param Picture $picture
+     * @return Response
+     */
+    public function removePhoto(Picture $picture)
+    {
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->getByFacebookUser($this->getUser());
+
+        if ($picture->getUser() !== $user) {
+            return new Response('nope');
+        }
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($picture);
+        $em->flush();
+        return new Response('removed');
+    }
 }
