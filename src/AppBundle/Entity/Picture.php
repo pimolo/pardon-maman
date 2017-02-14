@@ -64,11 +64,19 @@ class Picture
      */
     private $user;
 
+    /**
+     * @var User[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="User", inversedBy="votes")
+     */
+    private $voters;
+
     public function __construct()
     {
         $this->contests = new ArrayCollection();
         $this->deleted = false;
         $this->likes = 0;
+        $this->voters = new ArrayCollection();
     }
 
     /**
@@ -227,6 +235,47 @@ class Picture
     public function setUser($user)
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return User[]|ArrayCollection
+     */
+    public function getVoters()
+    {
+        return $this->voters;
+    }
+
+    /**
+     * @param User[]|ArrayCollection $voters
+     * @return Picture
+     */
+    public function setVoters($voters)
+    {
+        $this->voters = $voters;
+
+        return $this;
+    }
+
+    /**
+     * @param User $voter
+     * @return Picture
+     */
+    public function addVoter($voter)
+    {
+        $this->voters->add($voter);
+
+        return $this;
+    }
+
+    /**
+     * @param User $voter
+     * @return Picture
+     */
+    public function removeVoter($voter)
+    {
+        $this->voters->remove($voter);
 
         return $this;
     }

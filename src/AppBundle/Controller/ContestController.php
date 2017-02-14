@@ -64,7 +64,7 @@ class ContestController extends Controller
      * @param Picture $picture
      * @return Response
      */
-    public function removePhoto(Picture $picture)
+    public function removePhotoAction(Picture $picture)
     {
         $user = $this->getDoctrine()->getRepository('AppBundle:User')->getByFacebookUser($this->getUser());
 
@@ -76,5 +76,28 @@ class ContestController extends Controller
         $em->remove($picture);
         $em->flush();
         return new Response('removed');
+    }
+
+    /**
+     * @Route("/vote/{picture}", name="app_frontoffice_contest_vote")
+     *
+     * @param Picture $picture
+     * @return Response
+     */
+    public function voteAction(Picture $picture)
+    {
+        $user = $this->getDoctrine()->getRepository('AppBundle:User')->getByFacebookUser($this->getUser());
+
+        if ($picture->getVoters()->contains($user)) {
+            return new Response('error');
+        }
+
+        $user->addVote($picture);
+        $picture->addVoter($user);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->flush();
+
+        return new Response('test');
     }
 }

@@ -64,9 +64,17 @@ class User
      */
     private $photos;
 
+    /**
+     * @var Picture[]|ArrayCollection
+     *
+     * @ORM\ManyToMany(targetEntity="Picture", mappedBy="voters")
+     */
+    private $votes;
+
     public function __construct()
     {
         $this->photos = new ArrayCollection();
+        $this->votes = new ArrayCollection();
     }
 
     public static function createFromFacebookObject(FacebookUser $user)
@@ -240,5 +248,37 @@ class User
 
         return $this;
     }
-}
 
+    /**
+     * @param Picture[]|ArrayCollection $votes
+     * @return User
+     */
+    public function setVote($votes)
+    {
+        $this->votes = $votes;
+
+        return $this;
+    }
+
+    /**
+     * @param Picture $vote
+     * @return User
+     */
+    public function addVote($vote)
+    {
+        $this->votes->add($vote);
+
+        return $this;
+    }
+
+    /**
+     * @param Picture $vote
+     * @return User
+     */
+    public function removeVote($vote)
+    {
+        $this->votes->remove($vote);
+
+        return $this;
+    }
+}
