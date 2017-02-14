@@ -18,6 +18,11 @@ class FacebookUser implements UserInterface
     private $roles;
 
     /**
+     * @var string
+     */
+    private $accessToken;
+
+    /**
      * @param GraphUser $fbuser
      */
     public function __construct(GraphUser $fbuser)
@@ -44,6 +49,7 @@ class FacebookUser implements UserInterface
 
     /**
      * @param $role
+     * @return FacebookUser
      */
     public function addRole($role)
     {
@@ -105,4 +111,24 @@ class FacebookUser implements UserInterface
         return null;
         // TODO: Implement eraseCredentials() method.
     }
+
+    /**
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->accessToken;
+    }
+
+    /**
+     * @param string $accessToken
+     * @return FacebookUser
+     */
+    public function setAccessToken($accessToken)
+    {
+        $this->accessToken = $accessToken;
+
+        return $this;
+    }
+
 }

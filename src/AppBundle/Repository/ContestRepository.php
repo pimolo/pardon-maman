@@ -10,4 +10,8 @@ namespace AppBundle\Repository;
  */
 class ContestRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getCurrentContest()
+    {
+        return $this->find(4);
+    }
 }

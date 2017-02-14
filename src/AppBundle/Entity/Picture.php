@@ -51,6 +51,27 @@ class Picture
     private $contests;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="representation", type="string", length=255)
+     */
+    private $representation;
+
+    /**
+     * @var User
+     *
+     * @ORM\ManyToOne(targetEntity="User", inversedBy="photos")
+     */
+    private $user;
+
+    public function __construct()
+    {
+        $this->contests = new ArrayCollection();
+        $this->deleted = false;
+        $this->likes = 0;
+    }
+
+    /**
      * Get id
      *
      * @return int
@@ -170,6 +191,44 @@ class Picture
     public function getContests()
     {
         return $this->contests;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRepresentation()
+    {
+        return $this->representation;
+    }
+
+    /**
+     * @param string $representation
+     * @return Picture
+     */
+    public function setRepresentation($representation)
+    {
+        $this->representation = $representation;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     * @return Picture
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
     }
 }
 

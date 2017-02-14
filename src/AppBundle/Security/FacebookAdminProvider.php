@@ -2,6 +2,7 @@
 
 namespace AppBundle\Security;
 
+use AppBundle\Controller\FacebookHelper;
 use AppBundle\Entity\FacebookUser;
 use AppBundle\Entity\User;
 use Facebook\Facebook;
@@ -12,9 +13,12 @@ class FacebookAdminProvider implements UserProviderInterface
 {
     private $facebookSdk;
 
-    public function __construct(Facebook $sdk)
+    private $helper;
+
+    public function __construct(Facebook $sdk, FacebookHelper $helper)
     {
         $this->facebookSdk = $sdk;
+        $this->helper = $helper;
     }
 
     public function loadUserByUsername($accessToken)
@@ -22,18 +26,10 @@ class FacebookAdminProvider implements UserProviderInterface
         $response = $this->facebookSdk->get('/me?fields=id,name,email', $accessToken);
         $fbuser = $response->getGraphUser();
 
-        /*
-         * TODO: implement that
-        return (new User)
-            ->setFirstname($fbuser->getFirstName())
-            ->setLastname($fbuser->getLastName())
-            ->setEmail($fbuser->getEmail())
-            ->setAge($fbuser->getBirthday())
-            ->setLocation($fbuser->getHometown())
-            ->setUsername($fbuser->getEmail())
-        ;
-        */
-        return (new FacebookUser($fbuser))->addRole('ROLE_ADMIN');
+        $user = (new FacebookUser($fbuser))->addRole('ROLE_ADMIN')->setAccessToken($accessToken);
+        $this->helper->saveUser($user);
+
+        return $user;
     }
 
     public function refreshUser(UserInterface $user)

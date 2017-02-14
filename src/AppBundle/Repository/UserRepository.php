@@ -2,6 +2,9 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\FacebookUser;
+use AppBundle\Entity\User;
+
 /**
  * UserRepository
  *
@@ -10,4 +13,12 @@ namespace AppBundle\Repository;
  */
 class UserRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @param FacebookUser $user
+     * @return User
+     */
+    public function getByFacebookUser(FacebookUser $user)
+    {
+        return $this->findOneByEmail($user->getGraphUser()->getEmail());
+    }
 }
