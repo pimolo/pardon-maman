@@ -6,9 +6,14 @@ nav {
   ul li {
     font-family: 'Oswald', sans-serif;
     font-size: 2em;
+    vertical-align:middle;
     display: inline-block;
     text-decoration: none;
     list-style: none;
     margin-left:20px;
+    a img{
+      display:block;
+      height:30px;
+    }
   }
 }
