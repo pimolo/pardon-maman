@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\FacebookUser;
 use AppBundle\Entity\User;
 use Doctrine\Bundle\DoctrineBundle\Registry;
+use Facebook\GraphNodes\GraphEdge;
 use Facebook\Helpers\FacebookRedirectLoginHelper;
 use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;

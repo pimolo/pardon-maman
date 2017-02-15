@@ -24,8 +24,11 @@ class ContestController extends Controller
     {
         $user = $this->getUser();
         $repository = $this->get('picture.repository');
+        $em = $this->getDoctrine()->getManager();
         $photos = $repository->getPicturesByUser($user);
-        return new Response('lel');
+        $cgu = $em->getRepository('AppBundle:Configuration')->find(1)->getCgu();
+
+        return $this->render(':upload:index.html.twig', ['cgu' => $cgu, 'photos' => $photos->asArray()]);
     }
 
     /**
