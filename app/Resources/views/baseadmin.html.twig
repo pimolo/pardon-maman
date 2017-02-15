@@ -18,10 +18,9 @@
       </header>
       <nav>
         <ul>
-            <li><a href="/app_dev.php/gallery">Gallerie</a></li>
-            <li>Participer</li>
-            <li><a href="https://twitter.com/PardonMaman"><img src="{{ asset('assets/images/twitter-icon.png') }}" alt="Twitter"></a></li>
-            <li><a href="#"><img src="{{ asset('assets/images/facebook-icon.jpg') }}" alt="Facebook"></a></li>
+            <li><a href="/app_dev.php/admin/contest/cgu">CGU</a></li>
+            <li><a href="/app_dev.php/admin/contest">Liste des concours</a></li>
+            <li><a href="{{ url('app_backoffice_contest_new') }}">Nouveau concours</a></li>
         </ul>
       </nav>
       {% block body %}{% endblock %}
