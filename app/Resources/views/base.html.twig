@@ -20,7 +20,7 @@
         <ul>
           {% if is_granted('ROLE_ADMIN') %}
             <li><a href="/app_dev.php/admin/contest">Liste des concours</a></li>
-            <li><a href="/app_dev.php/admin/contest/new">Nouveau concours</a></li>
+            <li><a href="{{ url('app_backoffice_contest_new') }}">Nouveau concours</a></li>
           {% else %}
             <li>Gallerie</li>
             <li>Participer</li>

@@ -179,6 +179,9 @@ nav {
     text-decoration: none;
     list-style: none;
     margin-left: 20px; }
+    nav ul li a {
+      color: #000;
+      text-decoration: none; }
     nav ul li a img {
       display: block;
       height: 30px; }
@@ -299,5 +302,17 @@ nav {
         text-decoration: none;
         color: #000;
         border-bottom: 1px solid #000; }
+
+.contestlist table {
+  width: 100%;
+  text-align: center; }
+  .contestlist table th {
+    font: bold 1em/1 'Oswald', sans-serif;
+    text-transform: uppercase;
+    padding-bottom: 20px; }
+  .contestlist table tr {
+    padding-bottom: 10px; }
+  .contestlist table td a {
+    color: #000; }
 
 /*# sourceMappingURL=main.css.map */

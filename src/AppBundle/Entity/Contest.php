@@ -44,7 +44,7 @@ class Contest
      * @var \DateTimeInterface
      *
      * @ORM\Column(name="date_start", type="datetime")
-     * @Assert\GreaterThan("now")
+     * @Assert\GreaterThanOrEqual("yesterday")
      */
     private $dateStart;
 
