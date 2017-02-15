@@ -17,6 +17,6 @@ class ContestRepository extends \Doctrine\ORM\EntityRepository
      */
     public function getCurrentContest()
     {
-        return $this->find(4);
+        return $this->find(2);
     }
 }

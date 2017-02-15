@@ -8,6 +8,16 @@
 {% block body %}
     <div id="gallery">
 
+        {% for photo in photos %}
+        <article>
+            <div>
+                <h2>Morgan Leroux</h2>
+                <button> <a href="{{ path('app_frontoffice_contest_vote', {'picture': photo.id}) }}">J'aime</a></button>
+                <button>Partager</button>
+            </div>
+            <img src="{{ photo.representation }}" alt="pas moi">
+        </article>
+        {% endfor %}
     </div>
 {% endblock %}
 
