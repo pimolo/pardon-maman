@@ -18,10 +18,15 @@
       </header>
       <nav>
         <ul>
-          <li>Gallerie</li>
-          <li>Participer</li>
-          <li>Icon 1</li>
-          <li>Icon 2</li>
+          {% if is_granted('ROLE_ADMIN') %}
+            <li><a href="/app_dev.php/admin/contest">Liste des concours</a></li>
+            <li><a href="/app_dev.php/admin/contest/new">Nouveau concours</a></li>
+          {% else %}
+            <li>Gallerie</li>
+            <li>Participer</li>
+            <li><a href="https://twitter.com/PardonMaman"><img src="{{ asset('assets/images/twitter-icon.png') }}" alt="Twitter"></a></li>
+            <li><a href="#"><img src="{{ asset('assets/images/facebook-icon.jpg') }}" alt="Facebook"></a></li>
+          {% endif %}
         </ul>
       </nav>
       {% block body %}{% endblock %}
