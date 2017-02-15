@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participation au Concours{% endblock %}
+
+{% block pageID %}upload{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+{% endblock %}
+
+{% block fonts %}
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+    {# <script src="{{ asset('assets/js/home.js') }}"></script> #}
+{% endblock %}
+
+{% block body %}
+    {{ form(form) }}
+{% endblock %}

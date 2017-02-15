@@ -41,4 +41,26 @@ class DefaultController extends Controller
             'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..').DIRECTORY_SEPARATOR,
         ]);
     }
+
+    /**
+     * @Route("/cgu", name="cgu")
+     */
+    public function cguAction()
+    {
+        $config = $this->getDoctrine()->getRepository('AppBundle:Configuration')->find(1);
+        $cgu = $config->getCgu();
+
+        return $this->render('default/cgu.html.twig', ['cgu' => $cgu]);
+    }
+
+    /**
+     * @Route("/rules", name="rules")
+     */
+    public function rulesAction()
+    {
+        $config = $this->getDoctrine()->getRepository('AppBundle:Configuration')->find(1);
+        $rules = $config->getRules();
+
+        return $this->render('default/rules.html.twig', ['rules' => $rules]);
+    }
 }
