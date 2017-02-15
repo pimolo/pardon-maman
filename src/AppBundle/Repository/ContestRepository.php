@@ -2,6 +2,8 @@
 
 namespace AppBundle\Repository;
 
+use AppBundle\Entity\Contest;
+
 /**
  * ContestRepository
  *
@@ -10,6 +12,9 @@ namespace AppBundle\Repository;
  */
 class ContestRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return Contest|null
+     */
     public function getCurrentContest()
     {
         return $this->find(4);

@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Participation au Concours{% endblock %}
+
+{% block pageID %}upload{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+{% endblock %}
+
+{% block fonts %}
+    <link href="https://fonts.googleapis.com/css?family=Oswald:700|Roboto" rel="stylesheet">
+{% endblock %}
+
+{% block javascripts %}
+   {# <script src="{{ asset('assets/js/home.js') }}"></script> #}
+{% endblock %}
+
+{% block body %}
+  <main> 
+    <!-- <h3 class="dividTitle"><span>Participer au concours</span></h3> -->
+    <section>
+        <article>
+            {% for photo in photos %}
+                <a href="{{ path('app_frontoffice_contest_vote', {'picture': photo.id}) }}"><img src="{{ photo.representation }}" alt=""></a>
+            {% endfor %}
+        </article>
+    </section>
+
+    <h3 class="dividTitle"><span>Participation au concours</span></h3>
+    <section class="outro">
+      {{ cgu|raw }}
+    </section>
+
+    <footer>
+      <ul>
+        <li>
+          <a href="#" title="#">Réglement du concours</a>
+        </li>
+        <li>
+          <a href="#" title="#">Politique de confidentialité</a>
+        </li>
+      </ul>
+    </footer>
+  </main>
+{% endblock %}
+

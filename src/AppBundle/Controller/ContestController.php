@@ -32,6 +32,21 @@ class ContestController extends Controller
     }
 
     /**
+     * @Route("/choose-to-vote", name="app_frontoffice_contest_choose_to_vote")
+     */
+    public function chooseToVoteAction()
+    {
+        $user = $this->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('AppBundle:Contest');
+        $contest = $repository->getCurrentContest();
+        $photos = $contest->getPictures();
+        $cgu = $em->getRepository('AppBundle:Configuration')->find(1)->getCgu();
+
+        return $this->render(':upload:choose_to_vote.html.twig', ['cgu' => $cgu, 'photos' => $photos]);
+    }
+
+    /**
      * @Route("/participate/{photoId}", name="app_frontoffice_contest_participate")
      */
     public function participateAction($photoId)
@@ -92,7 +107,7 @@ class ContestController extends Controller
         $user = $this->getDoctrine()->getRepository('AppBundle:User')->getByFacebookUser($this->getUser());
 
         if ($picture->getVoters()->contains($user)) {
-            return new Response('error');
+            return new Response('déjà voté');
         }
 
         $user->addVote($picture);
@@ -101,6 +116,6 @@ class ContestController extends Controller
         $em = $this->getDoctrine()->getManager();
         $em->flush();
 
-        return new Response('test');
+        return new Response('ok');
     }
 }
