@@ -186,6 +186,42 @@ nav {
       display: block;
       height: 30px; }
 
+form {
+  width: 100%;
+  display: inline-block;
+  padding: 0 2em; }
+  form div {
+    margin: 1em; }
+    form div label {
+      font-size: 1.6em;
+      margin: 0 1em 0 0; }
+  form button {
+    background-color: #fff;
+    border: solid 2px black;
+    padding: 10px 20px;
+    font-size: 1.2em; }
+    form button:hover {
+      color: white;
+      background-color: #000; }
+
+input[type="text"] {
+  font-size: 1.2em;
+  padding: 0 1em;
+  outline: none;
+  border: solid 2px black;
+  border-radius: 5px;
+  height: 2em;
+  width: 90%; }
+
+textarea {
+  min-height: 5em;
+  font-size: 1.2em;
+  padding: 10px 1em;
+  outline: none;
+  border: solid 2px black;
+  border-radius: 5px;
+  width: 90%; }
+
 .home .call2acc {
   margin-top: 30px; }
 .home section {
