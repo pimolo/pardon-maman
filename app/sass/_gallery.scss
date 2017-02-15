@@ -1,4 +1,4 @@
-section#gallery {
+#galleryPage {
 
     width: 100%;
     display: inline-block;
@@ -37,12 +37,28 @@ section#gallery {
                 color: white;
                 text-transform: uppercase;
                 font-family: 'Oswald', sans-serif;
-                font-size: 3.5em;
+                font-size: 2.5em;
                 font-weight: bold;
             }
 
         }
-
+        .call2acc{ 
+            margin-left:10px;
+            &:first-of-type{
+                margin-left:20px;
+            }
+            a{
+                color:#fff;
+            }
+            display:inline-block;
+            vertical-align:middle;
+                border: 1px solid #fff;
+            background-color: #000;
+            color: #fff;
+            padding:5px 10px;
+            text-transform: uppercase;
+            font: 0.7em/1 'Oswald', sans-serif;
+        }
         img {
             position: absolute;
             top: 0;

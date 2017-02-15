@@ -6,16 +6,16 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 {% endblock %}
 {% block body %}
-    <div id="gallery">
+    <div id="galleryPage">
 
         {% for photo in photos %}
         <article>
             <div>
-                <h2>Morgan Leroux</h2>
-                <button> <a href="{{ path('app_frontoffice_contest_vote', {'picture': photo.id}) }}">J'aime</a></button>
-                <button>Partager</button>
+                <h2>{{ photo.user.firstName }} {{ photo.user.lastName }}</h2>
+                <button class="call2acc"> <a href="{{ path('app_frontoffice_contest_vote', {'picture': photo.id}) }}">J'aime</a></button>
+                <button class="call2acc">Partager</button>
             </div>
-            <img src="{{ photo.representation }}" alt="pas moi">
+            <img src="{{ photo.representation }}" alt="{{ photo.user.firstName }} {{ photo.user.lastName }}">
         </article>
         {% endfor %}
     </div>
