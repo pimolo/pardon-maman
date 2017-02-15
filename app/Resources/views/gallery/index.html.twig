@@ -2,22 +2,22 @@
 
 {% block title %}Concours Photos{% endblock %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+{% endblock %}
 {% block body %}
-    <header>
-        <h1>Pardon Maman</h1>
-        <h2>Concours photo</h2>
-        <p>Partagez une photo de votre choix jusqu'au 19/11/2016.</p>
-        <nav>
-            <ul>
-                <li>Gallerie</li>
-                <li>Participer</li>
-                <li>Icon 1</li>
-                <li>Icon 2</li>
-            </ul>
-        </nav>
-    </header>
-    <div id="gallery">
+    <div id="galleryPage">
 
+        {% for photo in photos %}
+        <article>
+            <div>
+                <h2>{{ photo.user.firstName }} {{ photo.user.lastName }}</h2>
+                <button class="call2acc"> <a href="{{ path('app_frontoffice_contest_vote', {'picture': photo.id}) }}">J'aime</a></button>
+                <button class="call2acc">Partager</button>
+            </div>
+            <img src="{{ photo.representation }}" alt="{{ photo.user.firstName }} {{ photo.user.lastName }}">
+        </article>
+        {% endfor %}
     </div>
 {% endblock %}
 

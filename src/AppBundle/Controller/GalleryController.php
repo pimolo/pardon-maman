@@ -16,10 +16,14 @@ class GalleryController extends Controller
    */
   public function indexAction(Request $request)
   {
+    $user = $this->getUser();
+    $em = $this->getDoctrine()->getManager();
+    $repository = $em->getRepository('AppBundle:Contest');
+    $contest = $repository->getCurrentContest();
+    $photos = $contest->getPictures();
+    $cgu = $em->getRepository('AppBundle:Configuration')->find(1)->getCgu();
     // replace this example code with whatever you need
-    return $this->render('gallery/index.html.twig', [
-
-    ]);
+    return $this->render('gallery/index.html.twig', ['cgu' => $cgu, 'photos' => $photos]);
   }
 
   /**

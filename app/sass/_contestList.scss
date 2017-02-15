@@ -1,0 +1,17 @@
+.contestlist{
+  table{
+    width:100%;
+    text-align:center;
+    th{
+      font:bold 1em/1 'Oswald', sans-serif;
+      text-transform: uppercase;
+      padding-bottom:20px;
+    }
+    tr{
+      padding-bottom:10px;
+    }
+    td a{
+      color:#000;
+    }
+  }
+}

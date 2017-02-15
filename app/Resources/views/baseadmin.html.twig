@@ -10,7 +10,7 @@
     {# {% include 'login/login.html.twig' %} #}
     <div class="globalWrapper {% block pageID %}{% endblock %}">
       <header>
-        <h1><a href="/app_dev.php">Pardon <span>Maman</span></a></h1>
+        <h1>Pardon <span>Maman</span></h1>
         <div>
           <h2>Concours photo</h2>
           <p>Partagez une photo de votre tatouage jusqu'au 19/11/2016 et votez pour vos contestants préférés pour gagner <i>cras gravida, diam sit amet rhoncus</i></p>
@@ -18,10 +18,9 @@
       </header>
       <nav>
         <ul>
-            <li><a href="/app_dev.php/gallery">Gallerie</a></li>
-            <li><a href="/app_dev.php/contest/choose">Participer</a></li>
-            <li><a href="https://twitter.com/PardonMaman"><img src="{{ asset('assets/images/twitter-icon.png') }}" alt="Twitter"></a></li>
-            <li><a href="#"><img src="{{ asset('assets/images/facebook-icon.jpg') }}" alt="Facebook"></a></li>
+            <li><a href="/app_dev.php/admin/contest/cgu">CGU</a></li>
+            <li><a href="/app_dev.php/admin/contest">Liste des concours</a></li>
+            <li><a href="{{ url('app_backoffice_contest_new') }}">Nouveau concours</a></li>
         </ul>
       </nav>
       {% block body %}{% endblock %}

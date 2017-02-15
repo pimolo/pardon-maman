@@ -18,9 +18,38 @@ body{
   font: 0.7em/1 'Oswald', sans-serif;
   letter-spacing:2px;
   text-transform:uppercase;
+  color:#000;
+  text-decoration: none;
+  background-color:transparent;
+  a{
+    color:#000;
+    text-decoration:none;
+  }
   &:hover{
     background-color:#000;
     color:#fff;
+    a{
+      color:#fff;
+    }
+  }
+}
+
+footer{
+  margin:80px 0 40px;
+  font:1em/1.2 'Oswald', sans-serif;
+  text-transform: uppercase;
+  letter-spacing:1px;
+  ul{
+    list-style:none;
+    li{
+      display:inline-block;
+      margin-right:15px;
+      a{
+        text-decoration:none;
+        color:#000;
+        border-bottom:1px solid #000;
+      }
+    }
   }
 }
 .dividTitle{

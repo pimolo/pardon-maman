@@ -4,11 +4,21 @@ nav {
   margin: 70px 5%;
   text-align:right;
   ul li {
-    font-family: 'Oswald', sans-serif;
+    font-family:'Oswald', sans-serif;
     font-size: 2em;
+    font-weight:bold;
+    vertical-align:middle;
     display: inline-block;
     text-decoration: none;
     list-style: none;
     margin-left:20px;
+    a{
+      color:#000;
+      text-decoration: none;
+      img{
+      display:block;
+      height:30px;
+    }
   }
+}
 }
